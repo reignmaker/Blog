@@ -2,7 +2,8 @@
 
 FactoryGirl.define do
   factory :post do
-    title "MyString"
-    body "MyText"
+    title Faker::Lorem.words.join(" ")
+    body Faker::Lorem.paragraphs.join("\n")
+    association :blog
   end
 end

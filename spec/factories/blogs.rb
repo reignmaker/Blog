@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :blog do
-    name "MyString"
+    name Faker::Lorem.words.join(" ")
   end
 end

@@ -1,0 +1,4 @@
+<% @posts.each do |p| %>
+<h2><%= link_to p.title, p %></h2>
+<span><%= link_to p.blog_name, p.blog if p.blog %></span>
+<% end -%>
