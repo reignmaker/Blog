@@ -11,7 +11,7 @@ describe Post do
 
   it 'should create Post record' do
     post = Post.new(:title => 'Hello World!', :body => 'Hello there!', :blog_id => @blog.id)
-    post.save.should be true
+    post.save.should be_true
   end
 
   it 'should return 10 records' do

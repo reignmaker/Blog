@@ -1,0 +1,8 @@
+<%= content_for(:side) do %>
+<ul class="nav nav-list">
+  <li class="nav-header">Sidebar</li>
+  <% @blogs.each do |b| %>
+  <li><%= link_to b.name, b  %></li>
+  <% end -%>
+</ul>
+<% end -%>

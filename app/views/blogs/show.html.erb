@@ -1,26 +1,23 @@
-<%- model_class = @post.class -%>
+<%- model_class = @blog.class -%>
 <h1><%=t '.title', :default => model_class.model_name.human %></h1>
 
 <p>
-  <strong><%= model_class.human_attribute_name(:title) %>:</strong><br>
-  <%= @post.title %>
+  <strong><%= model_class.human_attribute_name(:name) %>:</strong><br>
+  <%= @blog.name %>
 </p>
-<p>
-  <strong><%= model_class.human_attribute_name(:body) %>:</strong><br>
-  <%= @post.body %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:blog_id) %>:</strong><br>
-  <%= link_to @post.blog_name, @post.blog %>
-</p>
+<ul>
+  <% @posts.each do |p| %>
+  <li><%= link_to p.title, p %></li>
+  <% end -%>
+</ul>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              posts_path, :class => 'btn'  %>
+              blogs_path, :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_post_path(@post), :class => 'btn' %>
+              edit_blog_path(@blog), :class => 'btn' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              post_path(@post),
+              blog_path(@blog),
               :method => 'delete',
               :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
               :class => 'btn btn-danger' %>
