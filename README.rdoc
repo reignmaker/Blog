@@ -1,4 +1,7 @@
 Twitter callback URL: http://127.0.0.1:3000/users/auth/twitter/callback
+
 Yandex callback URL: http://127.0.0.1:3000/users/auth/yandex/callback
+
+Go to http://vivid-night-8349.herokuapp.com for live demo.
 
 Any questions? Email me at reignmaker@xakep.ru
