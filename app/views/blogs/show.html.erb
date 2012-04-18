@@ -11,6 +11,7 @@
   <% end -%>
 </ul>
 
+<% if user_signed_in? %>
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               blogs_path, :class => 'btn'  %>
@@ -22,4 +23,5 @@
               :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
               :class => 'btn btn-danger' %>
 </div>
+<% end -%>
 <%= render :partial => 'shared/side_menu', :blogs => @blogs %>

@@ -29,10 +29,20 @@
             <span class="icon-bar"></span>
           </a>
           <a class="brand" href="#">Task</a>
-          <div class="container nav-collapse">
-            <ul class="nav">
+          <div class="container">
+            <ul class="nav span8">
               <li><%= link_to "Posts", posts_path %></li>
             </ul>
+            <div class="span3" style="margin-top:10px;">
+              <% if user_signed_in? %>
+              <span class="label label-success"><%= current_user.email %></span>
+              <%= link_to 'Выйти', destroy_user_session_path, :method => :delete, :class => 'btn-mini btn-info' %>
+              <% else %>
+                <%= link_to 'Войти', new_user_session_path, :class => 'btn-mini btn-info'  %>
+                <%= link_to 'Регистрация', new_user_registration_path, :class => 'btn-mini btn-success'  %>
+              <% end -%>
+            </div>
+            </div>
           </div><!--/.nav-collapse -->
         </div>
       </div>
@@ -44,12 +54,7 @@
            <div class="span9">
               <%= yield %>
             </div>
-            <div class="span3">
-              <div class="well sidebar-nav">
-                <h3>Sidebar</h3>
-                <%= content_for?(:side) ? yield(:side) : "" %>
-              </div><!--/.well -->
-            </div><!--/span-->
+            <%= content_for?(:side) ? yield(:side) : "" %>
         </div><!--/row-->
       </div><!--/content-->
 

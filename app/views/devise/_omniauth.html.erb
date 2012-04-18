@@ -1,0 +1,11 @@
+<%- if devise_mapping.omniauthable? %>
+<ul>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <li>
+    <%= link_to omniauth_authorize_path(resource_name, provider), :class => "btn #{provider.to_s}" do %>
+      <span><%= provider.to_s.titleize %></span>
+    <% end -%>
+    </li>
+  <% end -%>
+</ul>
+<% end -%>

@@ -20,6 +20,7 @@
         <td><%= post.blog_id %></td>
         <td><%=l post.created_at %></td>
         <td>
+          <% if user_signed_in? %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_post_path(post), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
@@ -27,13 +28,16 @@
                       :method => :delete,
                       :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
                       :class => 'btn btn-mini btn-danger' %>
+          <% end -%>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+<% if user_signed_in? %>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_post_path,
             :class => 'btn btn-primary' %>
+<% end -%>
 <%= render :partial => 'shared/side_menu', :blogs => @blogs %>

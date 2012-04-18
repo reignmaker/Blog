@@ -1,7 +1,13 @@
 require "spec_helper"
 
 describe 'posts/index' do
-
+  
+  before(:each) do
+    @user ||= build(:user)
+    sign_in @user
+    @blogs = [build(:blog), build(:blog, :name => 'Blog name')]
+  end
+  
   it 'displays all the posts' do
     assign(:posts, [create(:post, :title => 'Welcome!'), create(:post)])
     render
@@ -9,15 +15,11 @@ describe 'posts/index' do
     rendered.should =~ /Hello/
   end
 
-end
-
-describe 'posts/show' do
-
-  it 'displays one post' do
-    assign(:post, create(:post))
+  it 'hides action buttons if not signed in' do
+    assign(:posts, [create(:post, :title => 'Welcome!'), create(:post)])
     render
-    rendered.should =~ /World/
-    rendered.should =~ /there/
+    rendered.should_not =~ /Edit/
+    rendered.should_not =~ /Destroy/
   end
 
 end

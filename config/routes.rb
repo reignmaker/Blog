@@ -1,5 +1,7 @@
 Task::Application.routes.draw do
 
+  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks", :registrations => "registrations" }
+
   root :to => 'posts#index'
   resources :posts
   resources :blogs, :except => [:index]
