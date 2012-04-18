@@ -1,1 +1,4 @@
+Twitter callback URL: http://127.0.0.1:3000/users/auth/twitter/callback
+Yandex callback URL: http://127.0.0.1:3000/users/auth/yandex/callback
+
 Any questions? Email me at reignmaker@xakep.ru
